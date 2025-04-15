@@ -1,0 +1,147 @@
+diff --git a/event/block/block_break_event.h b/event/block/block_break_event.h
+index a63ae53..cd22853 100644
+--- a/event/block/block_break_event.h
++++ b/event/block/block_break_event.h
+@@ -17,6 +17,8 @@
+ #include "endstone/event/block/block_event.h"
+ #include "endstone/event/cancellable.h"
+ 
++#include "endstone/player.h"
++
+ namespace endstone {
+ 
+ /**
+diff --git a/event/block/block_piston_event.h b/event/block/block_piston_event.h
+index ebccc0f..945b2fa 100644
+--- a/event/block/block_piston_event.h
++++ b/event/block/block_piston_event.h
+@@ -16,6 +16,8 @@
+ 
+ #include "endstone/event/block/block_event.h"
+ 
++#include "endstone/player.h"
++
+ namespace endstone {
+ 
+ /**
+diff --git a/event/player/player_interact_event.h b/event/player/player_interact_event.h
+index 43352fc..81759b6 100644
+--- a/event/player/player_interact_event.h
++++ b/event/player/player_interact_event.h
+@@ -18,6 +18,9 @@
+ #include "endstone/event/player/player_event.h"
+ #include "endstone/inventory/item_stack.h"
+ 
++#include "endstone/block/block.h"
++#include "endstone/block/block_face.h"
++
+ namespace endstone {
+ 
+ /**
+diff --git a/inventory/meta/map_meta.h b/inventory/meta/map_meta.h
+index dc4b19a..44695b4 100644
+--- a/inventory/meta/map_meta.h
++++ b/inventory/meta/map_meta.h
+@@ -19,6 +19,8 @@
+ #include <string>
+ #include <vector>
+ 
++#include "item_meta.h"
++
+ namespace endstone {
+ /**
+  * @brief Represents the metadata for a map item.
+diff --git a/plugin/plugin_manager.h b/plugin/plugin_manager.h
+index eeb148c..9dacc07 100644
+--- a/plugin/plugin_manager.h
++++ b/plugin/plugin_manager.h
+@@ -22,6 +22,9 @@
+ #include "endstone/event/event.h"
+ #include "endstone/event/event_priority.h"
+ 
++#include "endstone/util/result.h"
++#include <unordered_set>
++
+ namespace endstone {
+ 
+ class Permission;
+diff --git a/plugin/service.h b/plugin/service.h
+index 4bdaaba..f06dbd4 100644
+--- a/plugin/service.h
++++ b/plugin/service.h
+@@ -14,6 +14,8 @@
+ 
+ #pragma once
+ 
++#include <memory>
++
+ namespace endstone {
+ /**
+  * @brief Services represent a list of methods.
+diff --git a/plugin/service_manager.h b/plugin/service_manager.h
+index 17c64e0..457c8c0 100644
+--- a/plugin/service_manager.h
++++ b/plugin/service_manager.h
+@@ -17,6 +17,9 @@
+ #include "endstone/plugin/service.h"
+ #include "endstone/plugin/service_priority.h"
+ 
++#include <memory>
++#include <string>
++
+ namespace endstone {
+ 
+ class Plugin;
+diff --git a/scoreboard/criteria.h b/scoreboard/criteria.h
+index b451686..2fe79c9 100644
+--- a/scoreboard/criteria.h
++++ b/scoreboard/criteria.h
+@@ -16,6 +16,8 @@
+ 
+ #include "endstone/scoreboard/render_type.h"
+ 
++#include <string>
++
+ namespace endstone {
+ 
+ /**
+diff --git a/scoreboard/objective.h b/scoreboard/objective.h
+index 6f88147..921fb1b 100644
+--- a/scoreboard/objective.h
++++ b/scoreboard/objective.h
+@@ -20,6 +20,10 @@
+ #include "endstone/scoreboard/score.h"
+ #include "endstone/util/result.h"
+ 
++#include <optional>
++#include "criteria.h"
++#include "endstone/scoreboard/display_slot.h"
++
+ namespace endstone {
+ 
+ class Scoreboard;
+diff --git a/scoreboard/render_type.h b/scoreboard/render_type.h
+index 2036275..b0a7753 100644
+--- a/scoreboard/render_type.h
++++ b/scoreboard/render_type.h
+@@ -14,6 +14,8 @@
+ 
+ #pragma once
+ 
++#include <cstdint>
++
+ namespace endstone {
+ 
+ /**
+diff --git a/util/error.h b/util/error.h
+index 5f61123..a4ba1f8 100644
+--- a/util/error.h
++++ b/util/error.h
+@@ -15,6 +15,7 @@
+ #pragma once
+ 
+ #include <string_view>
++#include <string>
+ 
+ namespace endstone {
+ 
